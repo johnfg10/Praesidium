@@ -10,46 +10,46 @@
                 <form asp-route="Login">
                     <fieldset>
                         <div class="form-group">
-                            <label asp-for="User.UserName">
-                                <input class="form-control" value="@Model.User.UserName" asp-for="User.UserName" autofocus>
+                            <label asp-for="@Model.Username">Username
+                                <input class="form-control" value="@Model.Username" asp-for="@Model.Username" autofocus>
                             </label>
                         </div>
                         <div class="form-group">
-                            <label asp-for="User.Email">
-                                <input class="form-control" value="@Model.User.Email" asp-for="User.Email" autofocus>
+                            <label asp-for="@Model.Email">Email
+                                <input class="form-control" value="@Model.Email" asp-for="@Model.Email">
                             </label>
                         </div>       
                         <div class="form-group">
-                            <label asp-for="User.EmailConfirmed">
-                                <input type="checkbox" class="form-control" value="@Model.User.EmailConfirmed" asp-for="User.EmailConfirmed" autofocus>
+                            <label asp-for="@Model.EmailConfirmed">Email confirmed
+                                <input type="checkbox" class="form-control" value="@Model.EmailConfirmed" asp-for="@Model.EmailConfirmed">
                             </label>
                         </div>
                         <div class="form-group">
-                            <label asp-for="User.LockoutEnd">
-                                <input type="datetime" class="form-control" value="@Model.User.LockoutEnd" asp-for="User.LockoutEnd" autofocus>
+                            <label asp-for="@Model.LockoutEnd">Lockout end
+                                <input type="datetime-local" class="form-control" value="@Model.LockoutEnd" asp-for="@Model.LockoutEnd" >
                             </label>
                         </div>
                         <div class="form-group">
-                            <label asp-for="User.LockoutEnabled">
-                                <input type="checkbox" class="form-control" value="@Model.User.LockoutEnabled" asp-for="User.LockoutEnabled" autofocus>
-                            </label>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label asp-for="User.PhoneNumber">
-                                <input type="phone" class="form-control" value="@Model.User.PhoneNumber" asp-for="User.PhoneNumber" autofocus>
+                            <label asp-for="@Model.LockoutEnabled">Lockout enabled
+                                <input type="checkbox" class="form-control" value="@Model.LockoutEnabled" asp-for="@Model.LockoutEnabled" >
                             </label>
                         </div>
                         
                         <div class="form-group">
-                            <label asp-for="User.PhoneNumberConfirmed">
-                                <input type="checkbox" class="form-control" value="@Model.User.PhoneNumberConfirmed" asp-for="User.PhoneNumberConfirmed" autofocus>
+                            <label asp-for="@Model.PhoneNumber">Phone number
+                                <input type="tel" class="form-control" value="@Model.PhoneNumber" asp-for="@Model.PhoneNumber">
                             </label>
                         </div>
                         
                         <div class="form-group">
-                            <label asp-for="User.AccessFailedCount">
-                                <input type="number" class="form-control" value="@Model.User.AccessFailedCount" asp-for="User.AccessFailedCount" autofocus>
+                            <label asp-for="@Model.PhoneNumberConfirmed">Phone number comfirmed
+                                <input type="checkbox" class="form-control" value="@Model.PhoneNumberConfirmed" asp-for="@Model.PhoneNumberConfirmed" autofocus>
+                            </label>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label asp-for="@Model.AccessFailedCount">Access failed count
+                                <input type="number" class="form-control" value="@Model.AccessFailedCount" asp-for="@Model.AccessFailedCount" autofocus>
                             </label>
                         </div>
                         

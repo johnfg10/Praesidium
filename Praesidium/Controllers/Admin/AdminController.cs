@@ -62,7 +62,24 @@ namespace Praesidium.Controllers.Admin
                 throw new ArgumentException("userId was either null, empty or all whitespace");
             
             var user = _userManager.Users.FirstOrDefault(it => it.Id == userId);
-            var viewModel = new EditUserViewModel {User = user};
+
+            if (user == null)
+                return NotFound();
+            
+            var viewModel = new EditUserViewModel
+            {
+                Username = user.UserName,
+                AccessFailedCount = user.AccessFailedCount,
+                Email = user.Email,
+                EmailConfirmed = user.EmailConfirmed,
+                LockoutEnabled = user.LockoutEnabled,
+                PhoneNumber = user.PhoneNumber,
+                PhoneNumberConfirmed = user.PhoneNumberConfirmed
+            };
+            
+            if (user.LockoutEnd != null)
+                viewModel.LockoutEnd = (DateTimeOffset) user.LockoutEnd;
+            
             return View(viewModel);
         }
 
@@ -72,22 +89,32 @@ namespace Praesidium.Controllers.Admin
         {
             if(string.IsNullOrWhiteSpace(userId))
                 throw new ArgumentException("userId was either null, empty or all whitespace");
-/*            if (string.IsNullOrWhiteSpace(userId))
-            {
-                var vm = new ErrorViewModel();
-                vm.Error = new ErrorMessage() { Error = "UserId was null, empty or all white space"};
-                return View(vm);
-            }*/
+            
+            var user = _userManager.Users.FirstOrDefault(it => it.Id == userId);
+            
+            if (user == null)
+                return NotFound();
+            
+            if(!string.IsNullOrWhiteSpace(model.Username))
+                user.UserName = model.Username;
+            
+            if(!string.IsNullOrWhiteSpace(model.Email))
+                user.Email = model.Email;
 
-            model.User.Id = userId;
-            var res = await _userManager.UpdateAsync(model.User);
-/*            if (!res.Succeeded)
-            {
-                var vm = new ErrorViewModel();
-                vm.Error = new ErrorMessage() { Error = res.Errors.ToJson()};
-                return View(vm);
-            }*/
+            if(!string.IsNullOrWhiteSpace(model.PhoneNumber))
+                user.PhoneNumber = model.PhoneNumber;
 
+            user.EmailConfirmed = model.EmailConfirmed;
+            user.PhoneNumberConfirmed = model.PhoneNumberConfirmed;
+            
+            if(model.LockoutEnd > DateTimeOffset.Now)
+                user.LockoutEnd = model.LockoutEnd;
+            
+            user.LockoutEnabled = model.LockoutEnabled;
+            user.AccessFailedCount = model.AccessFailedCount;
+
+            await _userManager.UpdateAsync(user);
+            
             return RedirectToAction("EditUser", new {userId = userId});
         }
     }
