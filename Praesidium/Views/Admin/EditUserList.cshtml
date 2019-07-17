@@ -1,0 +1,34 @@
+@model Praesidium.ViewModels.Admin.EditUserListViewModel
+
+<div class="userlist">
+    <div class="col-sm-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Local Login</h3>
+            </div>
+            <div class="panel-body">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">User ID</th>
+                        <th scope="col">Username</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Edit</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var user in Model.Users)
+                        {
+                            <tr>
+                                <th scope="row">@user.Id</th>
+                                <td>@user.NormalizedUserName</td>
+                                <td>@user.NormalizedEmail</td>
+                                <td>@Html.ActionLink("Edit", "EditUser", new {userid = user.Id})</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
