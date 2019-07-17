@@ -389,3 +389,7 @@ ASALocalRun/
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor/
 
+
+*.rsa
+
+Praesidium/identityserver4_log\.txt
