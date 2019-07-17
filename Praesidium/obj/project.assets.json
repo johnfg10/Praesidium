@@ -14708,11 +14708,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Programming\\Auctoritatis\\Auctor\\Auctor.csproj",
-      "projectName": "Auctor",
-      "projectPath": "D:\\Programming\\Auctoritatis\\Auctor\\Auctor.csproj",
+      "projectUniqueName": "D:\\Programming\\Auctoritatis\\Praesidium\\Praesidium.csproj",
+      "projectName": "Praesidium",
+      "projectPath": "D:\\Programming\\Auctoritatis\\Praesidium\\Praesidium.csproj",
       "packagesPath": "C:\\Users\\jgray\\.nuget\\packages\\",
-      "outputPath": "D:\\Programming\\Auctoritatis\\Auctor\\obj\\",
+      "outputPath": "D:\\Programming\\Auctoritatis\\Praesidium\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
