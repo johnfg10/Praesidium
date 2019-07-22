@@ -40,7 +40,7 @@ namespace Praesidium.Controllers.Home
             return NotFound();
         }
 
-        /// <summary>
+        /// <summary> 
         /// Shows the error page
         /// </summary>
         public async Task<IActionResult> Error(string errorId)

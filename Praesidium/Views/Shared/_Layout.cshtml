@@ -46,6 +46,12 @@
                         <ul class="dropdown-menu">
                             <li><a asp-action="Logout" asp-controller="Account">Logout</a></li>
                         </ul>
+                        @if (User.IsInRole("admin"))
+                        {
+                            <ul class="dropdown-menu">
+                                <li><a asp-action="EditUserList" asp-controller="Admin">Edit users</a></li>
+                            </ul>
+                        }
                     </li>
                 </ul>
             }
